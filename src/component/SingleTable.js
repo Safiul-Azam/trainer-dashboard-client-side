@@ -1,26 +1,28 @@
 import React from 'react';
+import 'react-circular-progressbar/dist/styles.css';
 import { buildStyles, CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import { PieChart } from 'react-minimal-pie-chart';
 
-const SingleTrainer = ({ trainer }) => {
+const SingleTable = ({ trainer }) => {
     const { name, email, stepsWalked, stepsTarget, performedDate, scheduledDate, calorieIntake, calorieTarget, proteinConsumed, proteinTarget, carbConsumed, carbTarget, fatConsumed, fatTarget } = trainer
 
+
     const percentage = stepsWalked
+
     return (
-        <div className='rounded-2xl grid grid-cols-6 bg-primary text-white mb-5 py-8 px-8 gap-x-5'>
-            <div className='col-span-2 border flex justify-start gap-5 items-center'>
+        <tr>
+            <th>
                 <div class="avatar">
-                    <div class="w-20 rounded-full">
+                    <div class="w-16 rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt='' />
                     </div>
                 </div>
-                <div className=''>
-                    <h3>{name}</h3>
-                    <p className=''>{email}</p>
-                </div>
-            </div>
+                <h3>{name}</h3>
+                <p>{email}</p>
+            </th>
+            <td>
 
-            <div className='border flex justify-start items-center gap-5'>
-                <div style={{ width: 100, height: 100 }}>
+                <div style={{ width: 80, height: 80 }}>
                     <CircularProgressbarWithChildren
                         value={percentage}
                         maxValue={stepsTarget}
@@ -52,29 +54,31 @@ const SingleTrainer = ({ trainer }) => {
                             <p className='text-xs'>Walked</p>
                         </div>
                     </CircularProgressbarWithChildren>
+                    <h2>{stepsTarget}</h2>
                 </div>
-                <div>
-                    <strong className='text-3xl'>{stepsTarget / 1000}K</strong>
-                    <p className='text-accent text-sm'>target</p>
+            </td>
+            <td className='grid grid-rows-3 grid-flow-col'>
+                <h2>{performedDate}</h2>
+                <h2>{scheduledDate}</h2>
+                <h2 className='row-span-2 bg-primary'>H</h2>
+            </td>
+            <td>
+            <div style={{ width: 80, height: 80 }}>
+                <PieChart
+                totalValue={100}
+                radius={50}
+                lineWidth={20}
+                    data={[
+                        { title: 'One', value:33, color: '#E38627' },
+                        { title: 'Two', value: 33, color: '#C13C37' },
+                        { title: 'Three', value: 34, color: '#6A2135' },
+                    ]}
+                />
                 </div>
-            </div>
-            <div className='border flex justify-center items-center gap-5'>
-                <div className='w-16 h-3/4 my-auto text-xl font-bold'>
-                    <h2 className='my-2'>{performedDate}</h2>
-                    <h2>{scheduledDate}</h2>
-                </div>
-                <button className='bg-secondary rounded-md w-10 h-3/4 my-auto text-2xl font-bold shadow-lg'>&#62;</button>
-            </div>
-            <div className='border'>
-                <h3>Steps</h3>
-                <div>{calorieIntake}</div>
-                <div>
-                    {calorieTarget}
-                </div>
-            </div>
-            <div className='border'>@</div>
-        </div>
+            </td>
+            <td>H</td>
+        </tr>
     );
 };
 
-export default SingleTrainer;
+export default SingleTable;

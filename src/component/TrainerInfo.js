@@ -9,30 +9,23 @@ const TrainerInfo = () => {
             .then(data => setTrainers(data))
     }, [])
     return (
-        <div className='bg-secondary w-full'>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th>Steps</th>
-                            <th>Workout</th>
-                            <th>Nutrition</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            trainers.map(trainer => <SingleTrainer
-                                key={trainer.userId}
-                                trainer={trainer}
-                            ></SingleTrainer>)
-                        }
-                    </tbody>
-                </table>
+        <div class="bg-secondary rounded-2xl p-10">
+            <div className='grid grid-cols-6 text-center'>
+            <h3></h3>
+            <h3></h3>
+            <h3 className='text-3xl mb-10 text-white font-bold'>Steps</h3>
+            <h3 className='text-3xl mb-10 text-white font-bold'>Workout</h3>
+            <h3 className='text-3xl mb-10 text-white font-bold'>Nutrition</h3>
+            <h3></h3>
             </div>
-
+            <div className='grid grid-rows-3'>
+                {
+                    trainers.map(trainer => <SingleTrainer
+                        key={trainer.userId}
+                        trainer={trainer}
+                    ></SingleTrainer>)
+                }
+            </div>
         </div>
     );
 };
