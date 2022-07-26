@@ -8,6 +8,11 @@ const SingleTable = ({ trainer }) => {
 
 
     const percentage = stepsWalked
+   const calorie =  [
+        { title: 'protein', value:proteinConsumed, color: '#E38627' },
+        { title: 'carbs', value: carbConsumed, color: '#C13C37' },
+        { title: 'fats', value: fatConsumed, color: '#6A2135' },
+    ]
 
     return (
         <tr>
@@ -65,14 +70,10 @@ const SingleTable = ({ trainer }) => {
             <td>
             <div style={{ width: 80, height: 80 }}>
                 <PieChart
-                totalValue={100}
-                radius={50}
+                totalValue={210}
+                radius={100}
                 lineWidth={20}
-                    data={[
-                        { title: 'One', value:33, color: '#E38627' },
-                        { title: 'Two', value: 33, color: '#C13C37' },
-                        { title: 'Three', value: 34, color: '#6A2135' },
-                    ]}
+                    data={calorie}
                 />
                 </div>
             </td>

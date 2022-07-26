@@ -1,10 +1,12 @@
 import React from 'react';
 import { buildStyles, CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import { PieChart } from 'react-minimal-pie-chart';
 
 const SingleTrainer = ({ trainer }) => {
-    const { name, email, stepsWalked, stepsTarget, performedDate, scheduledDate, calorieIntake, calorieTarget, proteinConsumed, proteinTarget, carbConsumed, carbTarget, fatConsumed, fatTarget } = trainer
+    const { name, email, stepsWalked, stepsTarget, performedDate, scheduledDate, calorieIntake, calorieTarget, proteinConsumed, proteinTarget, carbsConsumed, carbsTarget, fatConsumed, fatTarget } = trainer
 
     const percentage = stepsWalked
+    const totalValueOfPieChart = carbsConsumed + proteinConsumed + fatConsumed
     return (
         <div className='rounded-2xl grid grid-cols-6 bg-primary text-white mb-5 py-8 px-8 gap-x-5'>
             <div className='col-span-2 border flex justify-start gap-5 items-center'>
@@ -65,11 +67,29 @@ const SingleTrainer = ({ trainer }) => {
                 </div>
                 <button className='bg-secondary rounded-md w-10 h-3/4 my-auto text-2xl font-bold shadow-lg'>&#62;</button>
             </div>
-            <div className='border'>
-                <h3>Steps</h3>
-                <div>{calorieIntake}</div>
+            <div className='border flex justify-start items-center gap-5'>
+                <div style={{ width: 100, height: 100 }}>
+                    <PieChart
+                        data={[
+                            { title: 'Carbs', value: carbsConsumed, color: '#E38627' },
+                            { title: 'Fats', value: fatConsumed, color: '#C13C37' },
+                            { title: 'Protein', value:proteinConsumed, color: '#6A2135' },
+                          ]}
+                        totalValue={totalValueOfPieChart}
+                        lineWidth={20}
+                        // label={({ dataEntry }) => console.log(dataEntry)}
+                        labelStyle={{
+                          fontSize: '25px',
+                          fontFamily: 'sans-serif',
+                          fill: '#E38627',
+                        }}
+                        labelPosition={0}
+                    />
+
+                </div>
                 <div>
-                    {calorieTarget}
+                    <strong className='text-3xl'>{calorieTarget / 1000}K</strong>
+                    <p className='text-accent text-lg text-center'>target</p>
                 </div>
             </div>
             <div className='border'>@</div>

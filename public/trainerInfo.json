@@ -7,14 +7,14 @@
         "stepsTarget":4000,
         "scheduledDate":["15 Oct"],
         "performedDate":["22 Oct"],
-        "calorieIntake":"1400",
-        "calorieTarget":"2.5K",
-        "proteinConsumed":"45",
-        "proteinTarget":"70",
-        "carbsConsumed":"50",
-        "carbsTarget":"70",
-        "fatConsumed":"50",
-        "fatTarget":"70"
+        "calorieIntake":2527,
+        "calorieTarget":2500,
+        "proteinConsumed":45,
+        "proteinTarget":70,
+        "carbsConsumed":50,
+        "carbsTarget":70,
+        "fatConsumed":50,
+        "fatTarget":70
     },
     {
         "userId":2,
@@ -24,14 +24,14 @@
         "stepsTarget":4000,
         "scheduledDate":["15 Oct"],
         "performedDate":["22 Oct"],
-        "calorieIntake":"2527",
-        "calorieTarget":"2.5K",
-        "proteinConsumed":"45",
-        "proteinTarget":"70",
-        "carbsConsumed":"50",
-        "carbsTarget":"70",
-        "fatConsumed":"50",
-        "fatTarget":"70"
+        "calorieIntake":2527,
+        "calorieTarget":2500,
+        "proteinConsumed":45,
+        "proteinTarget":70,
+        "carbsConsumed":50,
+        "carbsTarget":70,
+        "fatConsumed":50,
+        "fatTarget":70
     },
     {
         "userId":3,
@@ -41,14 +41,14 @@
         "stepsTarget":4000,
         "scheduledDate":["15 Oct"],
         "performedDate":["22 Oct"],
-        "calorieIntake":"2527",
-        "calorieTarget":"2.5K",
-        "proteinConsumed":"45",
-        "proteinTarget":"70",
-        "carbsConsumed":"50",
-        "carbsTarget":"70",
-        "fatConsumed":"50",
-        "fatTarget":"70"
+        "calorieIntake":2527,
+        "calorieTarget":2500,
+        "proteinConsumed":45,
+        "proteinTarget":70,
+        "carbsConsumed":50,
+        "carbsTarget":70,
+        "fatConsumed":50,
+        "fatTarget":70
     }
     
 ]
