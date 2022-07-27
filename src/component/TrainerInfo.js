@@ -16,7 +16,6 @@ const TrainerInfo = () => {
             <div className='grid grid-cols-6'>
             <h3></h3>
             <h3></h3>
-            
             <h3 className='text-3xl mb-10 text-white font-bold flex items-center'><BiWalk className='inline text-5xl'></BiWalk><span className='ml-1'>Steps</span></h3>
             <h3 className='text-3xl mb-10 text-white font-bold flex items-center'><CgGym className='inline text-5xl'></CgGym><span className='ml-4'>Workout</span></h3>
             <h3 className='text-3xl mb-10 text-white font-bold flex items-center'><FaConciergeBell className='inline text-4xl'></FaConciergeBell><span className='ml-4'>Nutrition</span></h3>

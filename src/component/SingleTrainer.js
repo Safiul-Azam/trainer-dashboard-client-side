@@ -1,15 +1,42 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { buildStyles, CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { PieChart } from 'react-minimal-pie-chart';
-import { FaChevronRight, FaRegBell } from "react-icons/fa";
+import { FaChevronRight, FaRegBell, FaMinus, FaPlus } from "react-icons/fa";
 import { BiUserCheck } from "react-icons/bi";
 import { TbCalendarStats } from "react-icons/tb";
 
 const SingleTrainer = ({ trainer }) => {
-    const { name, email, stepsWalked, stepsTarget, performedDate, scheduledDate, calorieIntake, calorieTarget, proteinConsumed, proteinTarget, carbsConsumed, carbsTarget, fatConsumed, AiFillBell } = trainer
-
+    let { name, email, stepsWalked, stepsTarget, performedDate, scheduledDate, calorieIntake, calorieTarget, proteinConsumed, proteinTarget, carbsConsumed, carbsTarget, fatConsumed, AiFillBell } = trainer
     const percentage = stepsWalked
     const totalValueOfPieChart = carbsConsumed + proteinConsumed + fatConsumed
+    const stepRef = useRef(0)
+    const calorieRef = useRef(0)
+    const handleIncreaseStep = () => {
+        const currentValueOfStep = stepRef.current.value
+        const parseOfNumber = parseFloat(currentValueOfStep)
+        const result = parseOfNumber + 500
+        stepRef.current.value = result
+    }
+    const handleDecreaseStep = () => {
+        const currentValueOfStep = stepRef.current.value
+        const parseOfNumber = parseFloat(currentValueOfStep)
+        if (parseOfNumber > 0) {
+            stepRef.current.value = parseOfNumber - 500
+        }
+    }
+    const handleIncreaseCalorie = () => {
+        const currentValueOfCalorie = calorieRef.current.value
+        const parseOfNumber = parseFloat(currentValueOfCalorie)
+        const result = parseOfNumber + 100
+        calorieRef.current.value = result
+    }
+    const handleDecreaseCalorie = () => {
+        const currentValueOfCalorie = calorieRef.current.value
+        const parseOfNumber = parseFloat(currentValueOfCalorie)
+        if (parseOfNumber > 0) {
+            calorieRef.current.value = parseOfNumber - 100
+        }
+    }
     return (
         <div className='rounded-2xl grid grid-cols-6 bg-primary text-white mb-5 py-4 px-8 gap-x-5'>
             <div className='col-span-2 flex justify-start gap-5 items-center'>
@@ -31,36 +58,26 @@ const SingleTrainer = ({ trainer }) => {
                         maxValue={stepsTarget}
                         strokeWidth={8}
                         styles={buildStyles({
-                            // Rotation of path and trail, in number of turns (0-1)
                             rotation: 0.25,
-
-                            // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                             strokeLinecap: 'butt',
-                            // Text size
                             textSize: '16px',
-
-                            // How long animation takes to go from one percentage to another, in seconds
                             pathTransitionDuration: 0.5,
-
-                            // Can specify path transition in more detail, or remove it entirely
-                            // pathTransition: 'none',
-
-                            // Colors
                             pathColor: `rgba(127, 209, 140, 1)`,
                             trailColor: '#d6d6d6',
                             backgroundColor: '#3e98c7',
                         })}
                     >
-                        {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
                         <div style={{ fontSize: 12, marginTop: -5 }}>
                             <strong className='text-lg'>{percentage}</strong>
                             <p className='text-xs'>Walked</p>
                         </div>
                     </CircularProgressbarWithChildren>
                 </div>
-                <div>
-                    <strong className='text-3xl'>{stepsTarget / 1000}k</strong>
+                <div className='grid gird-row-1'>
+                    <button onClick={handleIncreaseStep} className='bg-secondary py-1 rounded-lg text-center flex justify-center items-center'><FaPlus></FaPlus></button>
+                    <input className='text-2xl font-bold' type="button" ref={stepRef} value={stepsTarget} />
                     <p className='text-accent text-lg text-center'>target</p>
+                    <button onClick={handleDecreaseStep} className='bg-secondary py-1 rounded-lg flex justify-center items-center'><FaMinus></FaMinus></button>
                 </div>
             </div>
             <div className='flex justify-start items-center gap-5'>
@@ -68,11 +85,11 @@ const SingleTrainer = ({ trainer }) => {
                     <h2 className='text-2xl my-3'><BiUserCheck className='inline text-4xl font-bold mr-3'></BiUserCheck><span>{performedDate}</span></h2>
                     <h2 className='text-2xl'><TbCalendarStats className='inline text-4xl font-bold mr-3'></TbCalendarStats><span>{scheduledDate}</span></h2>
                 </div>
-                <button className='bg-secondary rounded-md h-3/4 mt-3 shadow-lg px-2'><FaChevronRight className='text-2xl'></FaChevronRight></button>
+                <button className='bg-secondary rounded-md py-6 mt-3 shadow-lg px-2'><FaChevronRight className='text-2xl'></FaChevronRight></button>
             </div>
             <div className='flex items-center justify-between gap-x-2 col-span-2'>
                 <div className='flex items-center gap-x-5 '>
-                    <div style={{ width: 80, height: 80 }}>
+                    <div style={{ width: 100, height: 100 }}>
                         <PieChart
                             data={[
                                 { title: 'Carbs', value: carbsConsumed, color: '#F0C50F' },
@@ -91,9 +108,11 @@ const SingleTrainer = ({ trainer }) => {
                             labelPosition={0}
                         />
                     </div>
-                    <div>
-                        <strong className='text-3xl'>{calorieTarget / 1000}k</strong>
-                        <p className='text-accent text-lg text-center mt-0'>target</p>
+                    <div className='grid gird-row-1'>
+                        <button onClick={handleIncreaseCalorie} className='bg-secondary py-1 rounded-lg text-center flex justify-center items-center'><FaPlus></FaPlus></button>
+                        <input className='text-2xl font-bold' type="button" ref={calorieRef} value={calorieTarget} />
+                        <p className='text-accent text-lg text-center'>target</p>
+                        <button onClick={handleDecreaseCalorie} className='bg-secondary py-1 rounded-lg flex justify-center items-center'><FaMinus></FaMinus></button>
                     </div>
                     <button className='bg-secondary rounded-md h-3/4 mt-3 py-6 px-2 shadow-lg'><FaChevronRight className='text-2xl'></FaChevronRight></button>
                 </div>
