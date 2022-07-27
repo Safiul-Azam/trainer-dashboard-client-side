@@ -9,11 +9,11 @@
         "performedDate":["22 Oct"],
         "calorieIntake":2527,
         "calorieTarget":2500,
-        "proteinConsumed":45,
+        "proteinConsumed":50,
         "proteinTarget":70,
-        "carbsConsumed":50,
+        "carbsConsumed":35,
         "carbsTarget":70,
-        "fatConsumed":50,
+        "fatConsumed":40,
         "fatTarget":70
     },
     {
@@ -26,11 +26,11 @@
         "performedDate":["22 Oct"],
         "calorieIntake":2527,
         "calorieTarget":2500,
-        "proteinConsumed":45,
+        "proteinConsumed":60,
         "proteinTarget":70,
-        "carbsConsumed":50,
+        "carbsConsumed":55,
         "carbsTarget":70,
-        "fatConsumed":50,
+        "fatConsumed":40,
         "fatTarget":70
     },
     {
@@ -47,7 +47,7 @@
         "proteinTarget":70,
         "carbsConsumed":50,
         "carbsTarget":70,
-        "fatConsumed":50,
+        "fatConsumed":30,
         "fatTarget":70
     }
     
