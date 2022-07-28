@@ -1,12 +1,12 @@
 [
     {
         "userId":1,
-        "name": "Charvie Sharma",
-        "email": "charviesharma@gmail2.com",
+        "name": "john Sharma",
+        "email": "jhonsharma@gmail.com",
         "stepsWalked": 3000,
         "stepsTarget":4000,
-        "scheduledDate":["15 Oct"],
-        "performedDate":["22 Oct"],
+        "performedDate":["15 Oct"],
+        "scheduledDate":["22 Oct"],
         "calorieIntake":2527,
         "calorieTarget":2500,
         "proteinConsumed":50,
@@ -14,16 +14,18 @@
         "carbsConsumed":35,
         "carbsTarget":70,
         "fatConsumed":40,
-        "fatTarget":70
+        "fatTarget":70,
+        "feedback":true,
+        "img":"https://i.ibb.co/5WygD7x/person-2.png"
     },
     {
         "userId":2,
-        "name": "Charvie Sharma",
-        "email": "charviesharma@gmail2.com",
+        "name": "Rolando sai",
+        "email": "rolandosai@gmail.com",
         "stepsWalked": 2450,
         "stepsTarget":4000,
-        "scheduledDate":["15 Oct"],
-        "performedDate":["22 Oct"],
+        "performedDate":["15 Oct"],
+        "scheduledDate":["22 Oct"],
         "calorieIntake":2527,
         "calorieTarget":2500,
         "proteinConsumed":60,
@@ -31,16 +33,17 @@
         "carbsConsumed":55,
         "carbsTarget":70,
         "fatConsumed":40,
-        "fatTarget":70
+        "fatTarget":70,
+        "img":"https://i.ibb.co/p4hVmt7/person-4.png"
     },
     {
         "userId":3,
-        "name": "Charvie Sharma",
-        "email": "charviesharma@gmail2.com",
+        "name": "Mesote ojil",
+        "email": "mesoteojil@gmail.com",
         "stepsWalked": 2550,
         "stepsTarget":4000,
-        "scheduledDate":["15 Oct"],
-        "performedDate":["22 Oct"],
+        "performedDate":["15 Oct"],
+        "scheduledDate":["22 Oct"],
         "calorieIntake":2527,
         "calorieTarget":2500,
         "proteinConsumed":45,
@@ -48,7 +51,8 @@
         "carbsConsumed":50,
         "carbsTarget":70,
         "fatConsumed":30,
-        "fatTarget":70
+        "fatTarget":70,
+        "img":"https://i.ibb.co/XZjFjWF/person-3.png"
     }
     
 ]

@@ -13,7 +13,7 @@ const TrainerInfo = () => {
     }, [])
     return (
         <div class="bg-secondary rounded-2xl p-4 drop-shadow-2xl">
-            <div className='grid grid-cols-6 gap-10 my-6 text-2xl text-white font-bold'>
+            <div className='lg:grid hidden lg:grid-cols-6 gap-10 my-6 text-2xl text-white font-bold'>
             <h3></h3>
             <h3></h3>
             <h3 className='flex items-center'><BiWalk className='inline'></BiWalk><span className='ml-1'>Steps</span></h3>
